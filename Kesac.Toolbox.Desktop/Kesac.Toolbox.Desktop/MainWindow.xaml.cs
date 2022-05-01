@@ -24,5 +24,20 @@ namespace Kesac.Toolbox.Desktop
         {
             InitializeComponent();
         }
+
+        private void TextBox_Changed(object sender, TextChangedEventArgs e)
+        {
+            var left = TextBoxLeftSet.Text.Split("\n").Select(x => x.Trim()).Where(x => x.Length > 0);
+            var right = TextBoxRightSet.Text.Split("\n").Select(x => x.Trim()).Where(x => x.Length > 0);
+
+            var leftExclusive = left.Where(x => !right.Contains(x));
+            var rightExclusive = right.Where(x => !left.Contains(x));
+            var intersect = left.Intersect(right);
+
+            TextBoxLeftExclusive.Text = String.Join("\n", leftExclusive);
+            TextBoxRightExclusive.Text = String.Join("\n", rightExclusive);
+            TextBoxIntersect.Text = String.Join("\n", intersect);
+
+        }
     }
 }
