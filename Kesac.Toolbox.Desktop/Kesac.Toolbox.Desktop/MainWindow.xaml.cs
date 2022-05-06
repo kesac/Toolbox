@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,33 @@ namespace Kesac.Toolbox.Desktop
             TextBoxLeftExclusive.Text = String.Join("\n", leftExclusive);
             TextBoxRightExclusive.Text = String.Join("\n", rightExclusive);
             TextBoxIntersect.Text = String.Join("\n", intersect);
+
+        }
+
+        private void TabControlMainNavigation_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GridSetComparison.Visibility = Visibility.Collapsed;
+            GridStringTransform.Visibility = Visibility.Collapsed;
+
+            if (TabControlMainNavigation.SelectedIndex == 0)
+            {
+                GridSetComparison.Visibility = Visibility.Visible;
+            }
+            else if(TabControlMainNavigation.SelectedIndex == 1)
+            {
+                GridStringTransform.Visibility = Visibility.Visible;
+            }
+        }
+
+
+
+        private void OnButtonEditLabel(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnButtonExportToClipboard(object sender, RoutedEventArgs e)
+        {
 
         }
     }
