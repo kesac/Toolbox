@@ -19,6 +19,13 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -38,14 +45,47 @@
             </TextBlock>
 
             <StackPanel Grid.Column="1" Orientation="Horizontal">
-                <Button x:Name="ButtonSetComparison" Content="{materialDesign:PackIcon TransitionMasked}" Background="Transparent" Foreground="White" BorderThickness="0" Click="OnButtonToolbox"></Button>
-                <Button x:Name="ButtonStringTransform" Content="{materialDesign:PackIcon CompareHorizontal}" Background="Transparent" Foreground="White" BorderThickness="0" Click="OnButtonToolbox"></Button>
+                <Button x:Name="ButtonSetComparison" 
+                        Style="{StaticResource MaterialDesignPaperLightButton}"
+                        Content="{materialDesign:PackIcon TransitionMasked}" 
+                        Background="Transparent" 
+                        BorderThickness="0" 
+                        Click="OnButtonToolbox"
+                        ToolTip="Set Comparison"/>
+                <Button x:Name="ButtonStringTransform"
+                        Style="{StaticResource MaterialDesignPaperLightButton}"
+                        Content="{materialDesign:PackIcon CompareHorizontal}"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Click="OnButtonToolbox"
+                        ToolTip="Text Transform"/>
             </StackPanel>
             
             <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Name="ButtonMinimize" Content="{materialDesign:PackIcon WindowMinimize}" Background="Transparent" Foreground="White" BorderThickness="0" Click="OnButtonMinimize"></Button>
-                <Button Name="ButtonMaximize" Content="{materialDesign:PackIcon WindowMaximize}" Background="Transparent" Foreground="White" BorderThickness="0" Click="OnButtonMaximize"></Button>
-                <Button Name="ButtonClose" Content="{materialDesign:PackIcon WindowClose}" Background="Transparent" Foreground="White" BorderThickness="0" Click="OnButtonClose"></Button>
+                <Button Name="ButtonInformation" 
+                        Style="{StaticResource MaterialDesignPaperLightButton}" 
+                        Content="{materialDesign:PackIcon Information}" 
+                        Background="Transparent" 
+                        BorderThickness="0"
+                        ToolTip="Information"/>
+                <Button Name="ButtonMinimize" 
+                        Style="{StaticResource MaterialDesignPaperLightButton}" 
+                        Content="{materialDesign:PackIcon WindowMinimize}" 
+                        Background="Transparent" 
+                        BorderThickness="0" 
+                        Click="OnButtonMinimize"/>
+                <Button Name="ButtonMaximize" 
+                        Style="{StaticResource MaterialDesignPaperLightButton}" 
+                        Content="{materialDesign:PackIcon WindowMaximize}" 
+                        Background="Transparent" 
+                        BorderThickness="0" 
+                        Click="OnButtonMaximize"/>
+                <Button Name="ButtonClose" 
+                        Style="{StaticResource MaterialDesignPaperLightButton}" 
+                        Content="{materialDesign:PackIcon WindowClose}" 
+                        Background="Transparent" 
+                        BorderThickness="0" 
+                        Click="OnButtonClose"/>
             </StackPanel>
         </Grid>
 
@@ -77,8 +117,18 @@
                                 </TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Content="{materialDesign:PackIcon Pencil}" Background="Transparent" BorderThickness="0" Click="OnButtonEditLabel"></Button>
-                                <Button Content="{materialDesign:PackIcon ArrowTopRightThick}" Background="Transparent" BorderThickness="0" Click="OnButtonExportToClipboard"></Button>
+                                <Button Style="{StaticResource MaterialDesignPaperLightButton}" 
+                                        Content="{materialDesign:PackIcon Pencil}" 
+                                        Background="Transparent" 
+                                        BorderThickness="0" 
+                                        Click="OnButtonEditLabel"
+                                        ToolTip="Edit Label"/>
+                                <Button Style="{StaticResource MaterialDesignPaperLightButton}" 
+                                        Content="{materialDesign:PackIcon ArrowTopRightThick}" 
+                                        Background="Transparent" 
+                                        BorderThickness="0" 
+                                        Click="OnButtonExportToClipboard"
+                                        ToolTip="Send To Clipboard"/>
                             </StackPanel>
                         </Grid>
                         <TextBox Name="TextBoxLeftSet"
@@ -110,8 +160,18 @@
                                 </TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Content="{materialDesign:PackIcon Pencil}" Background="Transparent" BorderThickness="0" Click="OnButtonEditLabel"></Button>
-                                <Button Content="{materialDesign:PackIcon ArrowTopRightThick}" Background="Transparent" BorderThickness="0" Click="OnButtonExportToClipboard"></Button>
+                                <Button Style="{StaticResource MaterialDesignPaperLightButton}" 
+                                        Content="{materialDesign:PackIcon Pencil}" 
+                                        Background="Transparent" 
+                                        BorderThickness="0" 
+                                        Click="OnButtonEditLabel"
+                                        ToolTip="Edit Label"/>
+                                <Button Style="{StaticResource MaterialDesignPaperLightButton}" 
+                                        Content="{materialDesign:PackIcon ArrowTopRightThick}" 
+                                        Background="Transparent" 
+                                        BorderThickness="0" 
+                                        Click="OnButtonExportToClipboard"
+                                        ToolTip="Send to Clipboard"/>
                             </StackPanel>
                         </Grid>
                         <TextBox Name="TextBoxRightSet"
@@ -189,7 +249,17 @@
         </Grid>
 
         <Grid Grid.Row="2" Name="GridStringTransform" Visibility="Collapsed">
-            
+            <materialDesign:Card Grid.Column="0" Padding="8" Margin="8">
+                <TextBox Name="TextBoxStringTransform"
+                        Grid.Row="0"
+                        Width="Auto"
+                        TextWrapping="Wrap" 
+                        AcceptsReturn="True" 
+                        AcceptsTab="True" 
+                        HorizontalScrollBarVisibility="Hidden"
+                        VerticalScrollBarVisibility="Auto"/>
+            </materialDesign:Card>
+
         </Grid>
         
     </Grid>
