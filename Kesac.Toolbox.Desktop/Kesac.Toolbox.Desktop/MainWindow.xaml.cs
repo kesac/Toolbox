@@ -41,6 +41,7 @@ namespace Kesac.Toolbox.Desktop
 
         }
 
+        /*
         private void TabControlMainNavigation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             GridSetComparison.Visibility = Visibility.Collapsed;
@@ -55,7 +56,22 @@ namespace Kesac.Toolbox.Desktop
                 GridStringTransform.Visibility = Visibility.Visible;
             }
         }
+        */
+        private void OnButtonToolbox(object sender, RoutedEventArgs e)
+        {
+            GridSetComparison.Visibility = Visibility.Collapsed;
+            GridStringTransform.Visibility = Visibility.Collapsed;
 
+            if(sender == ButtonSetComparison)
+            {
+                GridSetComparison.Visibility = Visibility.Visible;
+            }
+            else if(sender == ButtonStringTransform)
+            {
+                GridStringTransform.Visibility = Visibility.Visible;
+            }
+
+        }
 
 
         private void OnButtonEditLabel(object sender, RoutedEventArgs e)
@@ -66,6 +82,36 @@ namespace Kesac.Toolbox.Desktop
         private void OnButtonExportToClipboard(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void OnButtonClose(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void OnButtonMaximize(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState != WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = WindowState.Normal;
+            }
+        }
+
+        private void OnButtonMinimize(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void OnWindowMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
         }
     }
 }
