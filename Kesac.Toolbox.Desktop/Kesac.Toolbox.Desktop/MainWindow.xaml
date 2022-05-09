@@ -50,14 +50,14 @@
                         Content="{materialDesign:PackIcon TransitionMasked}" 
                         Background="Transparent" 
                         BorderThickness="0" 
-                        Click="OnButtonToolbox"
+                        Click="OnButtonNavigation"
                         ToolTip="Set Comparison"/>
                 <Button x:Name="ButtonStringTransform"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Content="{materialDesign:PackIcon CompareHorizontal}"
                         Background="Transparent"
                         BorderThickness="0"
-                        Click="OnButtonToolbox"
+                        Click="OnButtonNavigation"
                         ToolTip="Text Transform"/>
             </StackPanel>
             
@@ -130,6 +130,13 @@
                                         BorderThickness="0" 
                                         Click="OnButtonExportToClipboard"
                                         ToolTip="Send To Clipboard"/>
+                                <Button Name="ButtonClearLeftSet"
+                                        Style="{StaticResource MaterialDesignPaperLightButton}" 
+                                        Content="{materialDesign:PackIcon TrashCanOutline}" 
+                                        Background="Transparent" 
+                                        BorderThickness="0" 
+                                        Click="OnButtonClearTextbox"
+                                        ToolTip="Clear"/>
                             </StackPanel>
                         </Grid>
                         <TextBox Name="TextBoxLeftSet"
@@ -140,7 +147,9 @@
                                  AcceptsTab="True" 
                                  HorizontalScrollBarVisibility="Hidden"
                                  VerticalScrollBarVisibility="Auto"
-                                 TextChanged="TextBox_Changed"/>
+                                 TextChanged="OnTextboxChanged"
+                                 PreviewDragOver="OnPreviewDragOver"
+                                 PreviewDrop="OnPreviewDrop"/>
                     </Grid>
                 </materialDesign:Card>
                 <materialDesign:Card Grid.Column="1" Padding="8" Margin="8">
@@ -174,6 +183,13 @@
                                         BorderThickness="0" 
                                         Click="OnButtonExportToClipboard"
                                         ToolTip="Send to Clipboard"/>
+                                <Button Name="ButtonClearRightSet"
+                                        Style="{StaticResource MaterialDesignPaperLightButton}" 
+                                        Content="{materialDesign:PackIcon TrashCanOutline}" 
+                                        Background="Transparent" 
+                                        BorderThickness="0" 
+                                        Click="OnButtonClearTextbox"
+                                        ToolTip="Clear"/>
                             </StackPanel>
                         </Grid>
                         <TextBox Name="TextBoxRightSet"
@@ -184,7 +200,9 @@
                                  AcceptsTab="True" 
                                  HorizontalScrollBarVisibility="Hidden"
                                  VerticalScrollBarVisibility="Auto"
-                                 TextChanged="TextBox_Changed"/>
+                                 TextChanged="OnTextboxChanged"
+                                 PreviewDragOver="OnPreviewDragOver"
+                                 PreviewDrop="OnPreviewDrop"/>
                     </Grid>
                 </materialDesign:Card>
             </Grid>

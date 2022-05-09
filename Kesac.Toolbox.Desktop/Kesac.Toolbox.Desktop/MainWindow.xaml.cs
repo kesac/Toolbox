@@ -26,7 +26,7 @@ namespace Kesac.Toolbox.Desktop
             InitializeComponent();
         }
 
-        private void TextBox_Changed(object sender, TextChangedEventArgs e)
+        private void OnTextboxChanged(object sender, TextChangedEventArgs e)
         {
             var left = TextBoxLeftSet.Text.Split("\n").Select(x => x.Trim()).Where(x => x.Length > 0);
             var right = TextBoxRightSet.Text.Split("\n").Select(x => x.Trim()).Where(x => x.Length > 0);
@@ -41,23 +41,7 @@ namespace Kesac.Toolbox.Desktop
 
         }
 
-        /*
-        private void TabControlMainNavigation_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            GridSetComparison.Visibility = Visibility.Collapsed;
-            GridStringTransform.Visibility = Visibility.Collapsed;
-
-            if (TabControlMainNavigation.SelectedIndex == 0)
-            {
-                GridSetComparison.Visibility = Visibility.Visible;
-            }
-            else if(TabControlMainNavigation.SelectedIndex == 1)
-            {
-                GridStringTransform.Visibility = Visibility.Visible;
-            }
-        }
-        */
-        private void OnButtonToolbox(object sender, RoutedEventArgs e)
+        private void OnButtonNavigation(object sender, RoutedEventArgs e)
         {
             GridSetComparison.Visibility = Visibility.Collapsed;
             GridStringTransform.Visibility = Visibility.Collapsed;
@@ -72,7 +56,6 @@ namespace Kesac.Toolbox.Desktop
             }
 
         }
-
 
         private void OnButtonEditLabel(object sender, RoutedEventArgs e)
         {
@@ -143,6 +126,35 @@ namespace Kesac.Toolbox.Desktop
             if(e.ChangedButton == MouseButton.Left)
             {
                 this.DragMove();
+            }
+        }
+
+        private void OnPreviewDragOver(object sender, DragEventArgs e)
+        {
+            e.Effects = DragDropEffects.Copy;
+            e.Handled = true;
+        }
+
+        private void OnPreviewDrop(object sender, DragEventArgs e)
+        {
+            var files = e.Data.GetData(DataFormats.FileDrop) as string[];
+
+            if(files != null && files.Length > 0 && File.Exists(files[0]))
+            {
+                ((TextBox)sender).Text = File.ReadAllText(files[0]);
+            }
+
+        }
+
+        private void OnButtonClearTextbox(object sender, RoutedEventArgs e)
+        {
+            if (sender == ButtonClearLeftSet)
+            {
+                TextBoxLeftSet.Text = String.Empty;
+            }
+            else if(sender == ButtonClearRightSet)
+            {
+                TextBoxRightSet.Text = String.Empty;
             }
         }
     }
