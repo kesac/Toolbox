@@ -81,6 +81,38 @@ namespace Kesac.Toolbox.Desktop
 
         private void OnButtonExportToClipboard(object sender, RoutedEventArgs e)
         {
+            var match = false;
+
+            if (sender == ButtonClipboardLeftSet)
+            {
+                Clipboard.SetText(TextBoxLeftSet.Text);
+                match = true;
+            }
+            else if (sender == ButtonClipboardRightSet)
+            {
+                Clipboard.SetText(TextBoxRightSet.Text);
+                match = true;
+            }
+            else if (sender == ButtonClipboardLeftExclusive)
+            {
+                Clipboard.SetText(TextBoxLeftExclusive.Text);
+                match = true;
+            }
+            else if (sender == ButtonClipboardRightExclusive)
+            {
+                Clipboard.SetText(TextBoxRightExclusive.Text);
+                match = true;
+            }
+            else if (sender == ButtonClipboardIntersect)
+            {
+                Clipboard.SetText(TextBoxIntersect.Text);
+                match = true;
+            }
+
+            if(match)
+            {
+                // TODO: display temporary message
+            }
 
         }
 

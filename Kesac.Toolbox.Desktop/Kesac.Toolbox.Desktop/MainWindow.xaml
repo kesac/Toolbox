@@ -123,7 +123,8 @@
                                         BorderThickness="0" 
                                         Click="OnButtonEditLabel"
                                         ToolTip="Edit Label"/>
-                                <Button Style="{StaticResource MaterialDesignPaperLightButton}" 
+                                <Button Name="ButtonClipboardLeftSet"
+                                        Style="{StaticResource MaterialDesignPaperLightButton}" 
                                         Content="{materialDesign:PackIcon ArrowTopRightThick}" 
                                         Background="Transparent" 
                                         BorderThickness="0" 
@@ -166,7 +167,8 @@
                                         BorderThickness="0" 
                                         Click="OnButtonEditLabel"
                                         ToolTip="Edit Label"/>
-                                <Button Style="{StaticResource MaterialDesignPaperLightButton}" 
+                                <Button x:Name="ButtonClipboardRightSet"
+                                        Style="{StaticResource MaterialDesignPaperLightButton}" 
                                         Content="{materialDesign:PackIcon ArrowTopRightThick}" 
                                         Background="Transparent" 
                                         BorderThickness="0" 
@@ -199,7 +201,23 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Style="{DynamicResource MaterialDesignBody1TextBlock}">Left Exclusive</TextBlock>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Style="{DynamicResource MaterialDesignBody1TextBlock}">Left Exclusive</TextBlock>
+                            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button Name="ButtonClipboardLeftExclusive"
+                                        Style="{StaticResource MaterialDesignPaperLightButton}" 
+                                        Content="{materialDesign:PackIcon ArrowTopRightThick}" 
+                                        Background="Transparent" 
+                                        BorderThickness="0" 
+                                        Click="OnButtonExportToClipboard"
+                                        ToolTip="Send To Clipboard"/>
+                            </StackPanel>
+                        </Grid>
+                        
                         <TextBox Name="TextBoxLeftExclusive"
                                  Grid.Row="1"
                                  Width="Auto"
@@ -216,7 +234,24 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Style="{DynamicResource MaterialDesignBody1TextBlock}">Intersect</TextBlock>
+                        
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Style="{DynamicResource MaterialDesignBody1TextBlock}">Intersect</TextBlock>
+                            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button Name="ButtonClipboardIntersect"
+                                        Style="{StaticResource MaterialDesignPaperLightButton}" 
+                                        Content="{materialDesign:PackIcon ArrowTopRightThick}" 
+                                        Background="Transparent" 
+                                        BorderThickness="0" 
+                                        Click="OnButtonExportToClipboard"
+                                        ToolTip="Send To Clipboard"/>
+                            </StackPanel>
+                        </Grid>
+
                         <TextBox Name="TextBoxIntersect"
                                  Grid.Row="1"
                                  Width="Auto"
@@ -233,7 +268,23 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Style="{DynamicResource MaterialDesignBody1TextBlock}">Right Exclusive</TextBlock>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Style="{DynamicResource MaterialDesignBody1TextBlock}">Right Exclusive</TextBlock>
+                            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button Name="ButtonClipboardRightExclusive"
+                                        Style="{StaticResource MaterialDesignPaperLightButton}" 
+                                        Content="{materialDesign:PackIcon ArrowTopRightThick}" 
+                                        Background="Transparent" 
+                                        BorderThickness="0" 
+                                        Click="OnButtonExportToClipboard"
+                                        ToolTip="Send To Clipboard"/>
+                            </StackPanel>
+                        </Grid>
+                        
                         <TextBox Name="TextBoxRightExclusive"
                                  Grid.Row="1"
                                  Width="Auto"
